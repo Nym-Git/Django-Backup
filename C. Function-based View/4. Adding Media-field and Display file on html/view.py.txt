@@ -1,0 +1,28 @@
+from django.shortcuts import render, redirect
+from .models import Instruction,Comment
+from .forms import InstructionFORMS
+from .import urls
+from django.views.generic import ListView
+from django.http import HttpResponseRedirect
+
+
+# Create your views here.
+def indexVIEW(request):
+  if request.method == 'POST':
+    form = InstructionFORMS(request.POST, request.FILES)
+    if form.is_valid():
+      new_req = Instruction(User_Name = request.user,Title_M=request.POST['TitleF'],Details_M=request.POST['DetailsF'], ImagesM=request.FILES['Images'])  
+      new_req.save()
+      return HttpResponseRedirect('display')
+
+  else:
+    form = InstructionFORMS()
+
+  context = {'form': form}
+  return render(request,'index.html',context)
+      
+
+def display(request):
+  all_mem = Instruction.objects.all
+  return render(request,'display.html', {'all':all_mem})
+

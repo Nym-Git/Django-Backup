@@ -1,0 +1,19 @@
+from django.shortcuts import render
+from django.views.generic import ListView, CreateView
+from .models import postModel
+
+# Create your views here.
+class index(ListView):
+  model =  postModel
+  template_name = 'index.html'
+
+
+
+class PostVIEW(CreateView):
+  model = postModel
+  template_name = 'post.html'
+  fields = '__all__'
+
+
+
+

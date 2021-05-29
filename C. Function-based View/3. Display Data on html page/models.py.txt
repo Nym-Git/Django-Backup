@@ -1,0 +1,17 @@
+from django.db import models
+from django.conf import settings
+from django.utils import timezone
+from django.contrib.auth.models import User
+
+
+# POST creation 
+class Instruction(models.Model):
+  User_Name = models.ForeignKey(User, on_delete=models.CASCADE, related_name='User_Name')
+  Title_M   = models.CharField(max_length=200,null=True)
+  Details_M = models.TextField(max_length=500,null=True)
+  ImagesM  = models.FileField(blank=True, upload_to='images/')
+  published_date = models.DateTimeField(default=timezone.now)
+ 
+  def __str__(self):
+    return self.Title_M 
+

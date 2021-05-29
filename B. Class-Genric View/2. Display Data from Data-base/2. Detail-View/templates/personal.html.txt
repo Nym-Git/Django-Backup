@@ -1,0 +1,10 @@
+{% load static %}
+
+    <p>{{ personal.Title }}</p><br>
+    <p>{{ personal.Details }}</p><br>
+
+<!--{% if personal.ImagesM %}
+      <img src="{{ personal.ImagesM.url }}" alt="post" width="480" height="300">
+    {% endif %}
+    
+-->

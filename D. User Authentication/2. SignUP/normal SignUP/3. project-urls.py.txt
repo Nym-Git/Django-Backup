@@ -1,0 +1,5 @@
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('Blog/accounts/login',include('django.contrib.auth.urls')),
+    
+]

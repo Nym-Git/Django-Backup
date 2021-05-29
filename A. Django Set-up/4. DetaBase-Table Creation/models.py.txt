@@ -1,0 +1,11 @@
+from django.db import models
+
+
+# Create your models here.
+class postModel(models.Model):
+  Title = models.TextField()
+  Detail= models.TextField()
+
+  def __str__(self):
+    return self.Title
+

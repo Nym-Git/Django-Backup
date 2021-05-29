@@ -1,0 +1,5 @@
+{% block content %}
+{% for c in object_list %}
+  <h3><a href="{% url 'personal' c.pk %}">{{ c.Title }}</a></h3>
+{% endfor %}
+{% endblock content %}

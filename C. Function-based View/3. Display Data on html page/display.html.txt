@@ -1,0 +1,9 @@
+    {% load static %}
+      {% for c in all %}
+        <p>{{ c.Title_M }}</p>
+        <div class="MagicScroll" data-options="speed: 2400; autoplay: 1000; items: 4;">
+          {% if c.ImagesM %}
+          <img src="{{ c.ImagesM.url }}" alt="post" width="480" height="300">
+          {% endif %}
+        </div> 
+      {% endfor %} 

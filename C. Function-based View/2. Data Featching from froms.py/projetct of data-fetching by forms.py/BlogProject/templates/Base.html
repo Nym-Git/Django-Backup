@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+  <title>Bloging.com</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTi2KBvWRf50ZUuQeYzOLpGfvzAcgF7e6gARQ&usqp=CAU" style="width: 43%; height: 43%; margin-top: 2%; margin-bottom: 2%; margin-left: 2%;" alt="">
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar" style="background-color: black;">
+      <ul class="nav navbar-nav navbar-right" style="margin-top: 0.60%;">
+        <li><a href="{% url 'register' %}"><span class="glyphicon glyphicon-user" style="color: rgb(4, 218, 4);"></span><b style="color: rgb(4, 218, 4);">_SignIn</b></a></li>
+        <li><a href="{% url 'login' %}"><span class="glyphicon glyphicon-log-in" style="color: red;"></span> <b style="color: red;">_LogIn</b></a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right" style="margin: 0.50%;">
+        <li class="active"><a href="{% url 'display' %}"><b>Home</b></a></li>
+        <li class="active"><a href="{% url 'index' %}"><b>Create Post</b></a></li>
+        <li class="active"><a href="{% url 'index' %}"><b>Trending Posts</b></a></li>
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#">FILTERS_<span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="#">Page 1-1</a></li>
+          </ul>
+        </li>
+      </ul>
+      <ul class="nav navbar-nav navbar-left" style="margin-top: 0.50%;">
+        <i class="fa fa-instagram" style="font-size:40px; margin-left: 10px; margin-right: 10px; color:#E1306C"></i>
+        <i class="fa fa-linkedin-square" style="font-size:38px; margin-right: 10px; color:rgb(47, 47, 228)"></i>
+        <i class="fa fa-foursquare" style="font-size:36px; margin-right: 8px; color:rgb(235, 201, 11)"></i>
+        <i class="fa fa-google-plus" style="font-size:36px; color:#fa062a"></i>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="container">
+  {% block content %}
+  
+  {% endblock %}
+</div>
+  
+
+</body>
+</html>
+<!--base-->>
+

@@ -1,0 +1,3 @@
+LOGIN_REDIRECT_URL = 'display'
+
+#display is a page url

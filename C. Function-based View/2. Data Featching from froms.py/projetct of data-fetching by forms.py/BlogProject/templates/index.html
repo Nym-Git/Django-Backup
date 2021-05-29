@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block content %}
+
+    <form action="" method="POST" enctype="multipart/form-data" style="width: 90%; padding-left: 10%;">
+      <h1 style="text-align: center;">Create A New <b>POST</b></h1>
+      <br><br>
+      {% csrf_token %}
+      {{ form.file }}
+      <label><b>Post's Heading</b></label>
+      {{ form.TitleF }}
+      <label style="color: rgb(170, 162, 162);"><b>We'll share your Heading as A COVER TITLE with our User.</b></label>
+      <br><br>
+      <label><b>Post's Content</b></label>
+      {{ form.DetailsF}}
+      <br><br>
+      {{ form.Images }}  
+    <br>
+      <button type="submit" class="btn btn-primary btn-lg btn-block">Publish</button>
+    </form>
+{% endblock %}

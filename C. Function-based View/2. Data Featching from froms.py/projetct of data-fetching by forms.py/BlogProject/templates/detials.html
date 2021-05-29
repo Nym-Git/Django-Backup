@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  {% extends 'base.html' %}
+  {% block content %}
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <!--https://codepen.io/isaacasante/pen/eoeBNY?editors=1100--><!--image-crop url for website guide-->
+</head>
+<body>
+  <style>
+    img {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+    }
+  </style>
+
+  
+    {% for o in ID %}
+      <div class="container" style="width: 85%; margin-left: 7%;">
+        <div class="page-header">
+          <h1><b>{{ o.Title_M }}</b></h1>    
+          <p style="font-size:large; color: rgb(61, 59, 59);" > by   <b style="color: rgb(9, 9, 155);">{{ o.User_Name }}</b></p>   
+          <p>Posted on {{ o.published_date }}</p>
+        </div>
+        <p>{{ o.Details_M|safe|linebreaksbr }}</p>
+        {% if o.ImagesM %}
+              <img src="{{ o.ImagesM.url }}" alt="Avatar" style="width:50%;">
+        {% endif %}
+        <br><br><br><br>
+      
+      
+      <h1>Comments...</h1><br>
+      <form action="" method="POST" style="border-color: black;">
+        {% csrf_token %}
+        {{ forms.CommentF }} <br>
+        <button type="submit" class="btn btn-primary btn-lg btn-block"><b>POST</b></button> <br>
+      </form>
+        {% for c in CommentS %}
+          <div class="page-header" style="width: 100%; background-color: white; padding: 2%; padding-left: 4%; box-shadow: 5px 10px 18px #888888; margin-top: -1%; ">
+            {% if o.ImagesM %}
+            <div class="container" id="imgcontainer">
+              <div class="items photo">
+                <img src="{{ o.ImagesM.url }}" style="width:50px; height: 50px;" alt="Cat 1">
+              </div>
+            </div>
+            {% endif %}
+            
+            <p style="font-size: 16px; color: black;"><b>{{ c.User_Name }}</b></p>
+            <p style="font-size: 12px;">{{c.Commented_date}}</p>
+            <p style="color: rgb(94, 91, 91);"><b>{{ c.Comment }}</b></p>
+          </div>
+        {% endfor %}         
+      </div>
+    {% endfor %}
+  {% endblock %}
+
+  
+  
+</body>
+</html>
+
+
+
+
+

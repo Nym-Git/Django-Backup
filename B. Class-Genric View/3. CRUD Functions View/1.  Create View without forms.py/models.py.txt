@@ -1,0 +1,16 @@
+from django.db import models
+from django.shortcuts import reverse
+
+# Create your models here.
+class postModel(models.Model):
+  Title  = models.TextField( default='NULL')
+  Details= models.TextField()
+
+  def __str__(self):
+    return self.Title
+
+
+  def get_absolute_url(self):
+    return reverse('index')
+    
+

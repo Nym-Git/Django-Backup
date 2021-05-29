@@ -1,0 +1,27 @@
+from django import forms
+
+
+
+class InstructionFORMS(forms.Form):
+  
+  TitleF = forms.CharField(max_length=500,
+    widget=forms.TextInput(attrs={
+      'type' :'text',
+      'class':'form-control',
+      'id'   :'title'
+    }))
+
+  DetailsF= forms.CharField(max_length=500,
+    widget=forms.Textarea(attrs={
+      'type' :'text',
+      'class':'form-control',
+      'id'   :'title'
+    }))
+
+  Images= forms.FileField(
+    widget=forms.ClearableFileInput(attrs={
+      'type':'file', 
+      'id' : 'files',  
+      'multiple': True
+    }))
+
