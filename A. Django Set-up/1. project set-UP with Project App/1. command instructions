@@ -1,0 +1,18 @@
+First install django:
+
+- mkdir folderName
+- cd floderName
+
+-> django-admin startproject Project-Name
+-> django-admin startapp App-Name
+
+-> cd Project-Name
+-> mkdir templates
+
+-> python manage.py runserver
+ 
+ See if django running then....
+-> python manage.py makemigrations
+-> python manage.py migrate
+
+-> python manage.py runserver
