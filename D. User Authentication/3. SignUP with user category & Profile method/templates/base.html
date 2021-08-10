@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div style="margin: -1%; padding: 2%; background: black; color: rgb(250, 249, 248); height: 10%;">
+    
+    {% if user.is_authenticated %}
+      {% if user.profile.Category == 'Doctor' %}
+        <b style="color: rgb(241, 226, 10);">Dr.</b> {{ user.get_full_name }}
+      {% elif user.profile.Category == 'Patient' %}
+        <b style="color: rgb(248, 232, 6);">patient.</b> {{ user.get_full_name }}
+      {% endif %}
+
+        {% if user.is_authenticated %}
+          <a href="{% url 'logout' %}" style="color: rgb(248, 8, 8); padding-left: 2%; ">logout</a>
+        {% else %}
+          <a href="{% url 'signup' %}" style="color: rgb(115, 247, 7); margin-right: 3%; padding-left: 2%;">signup</a>
+          <a href="{% url 'login' %}" style="color: rgb(248, 8, 8);  padding-left: 2%;">login</a>
+        {% endif %}
+    {% else %}
+      <b>BANAO</b>
+    {% endif %}
+    <div style="width: 40%; float: right;">
+      <a href="{% url 'home' %}" style="color: rgb(228, 208, 208); margin-right: 3%;">HOME</a>
+      <a href="{% url 'list' %}" style="color: rgb(228, 208, 208); margin-right: 3%;">Post</a>
+      {% if user.profile.Category == 'Doctor' %}
+      <a href="{% url 'mypost' %}" style="color: rgb(240, 220, 220); margin-right: 3%;">Publised Posts</a>
+        <a href="{% url 'post' %}" style="color: rgb(240, 220, 220); margin-right: 3%;">Create Post</a>
+        <a href="{% url 'draft' %}" style="color: rgb(245, 218, 218); margin-right: 3%;">Draft</a>
+      {% endif %}
+      <div style="float: right; width: 30%;">
+        {% if user.is_authenticated %}
+          <a href="{% url 'logout' %}" style="color: rgb(248, 8, 8); ">logout</a>
+        {% else %}
+          <a href="{% url 'signup' %}" style="color: rgb(115, 247, 7); margin-right: 3%;">signup</a>
+          <a href="{% url 'login' %}" style="color: rgb(248, 8, 8); ">login</a>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+  {% block content %}
+
+  {% endblock %}
+</body>
+</html>

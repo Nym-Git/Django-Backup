@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+    <div class="row">
+      {% load static %}
+      {% for o in post %}
+        <h3 style="color: black;">{{ o.Title }}</h3><hr>
+        <img src="{{o.Image.url}}" alt="" height="200px">
+        <p>{{ o.Summary}}</p><hr>
+        <p>{{ o.Content|safe}}</p>
+        <p style="color: rgb(87, 76, 76); font-size: small;">{{ o.published_date }}</p>
+      {% endfor %}
+    </div>
+</body>
+</html>

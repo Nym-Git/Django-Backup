@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+<!DOCTYPE html>
+{% block content %}
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div style="padding-left: 40%;"><br><br><br>
+    {% for i in point %}
+      <p><b>Doctors Name:</b>-----------------{{i.DR}}</p>
+      <p><b>Appointment Date:</b>------------{{i.Date}}</p>
+      <p><b>Appointment start Time:</b>-----{{i.start_time}}</p>
+      <p><b>Appointment end Time:</b>------{{i.end_time}}</p><br><br>
+    {% endfor %}
+  </div>
+</body>
+{% endblock %}
+</html>

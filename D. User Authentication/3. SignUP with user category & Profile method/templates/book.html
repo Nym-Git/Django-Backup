@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+<!DOCTYPE html>
+{% block content %}
+<html lang="en">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body><br>
+    <div class="row" style="padding: 5%;">
+      {% load static %}
+      <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="form-group">
+          <label ><b>Required speciality</b></label><br>
+          {{ form.Required_speciality }}
+        </div><br>
+        <div class="form-group">
+          <label ><b>Date of Appointment:</b></label><br>
+          {{ form.Date_of_Appointment}}
+        </div><br>
+        <div class="form-group">
+          <label ><b>Time of Appointment</b></label><br>
+          {{ form.Start_Time_of_Appointment}}
+        </div>
+        {% for error in form.errors %}
+          <p style="color: red">{{ error }}</p>
+        {% endfor %}
+        <br>
+        <button type="submit" class="btn btn-dark btn-lg btn-block" style="color: rgb(5, 5, 5);"><b>confirm</b></button>
+      </form>
+    </div>
+</body>
+{% endblock %}
+</html>
