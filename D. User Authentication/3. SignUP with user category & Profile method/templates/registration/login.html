@@ -1,14 +1,23 @@
-
+{% extends 'Base.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
 {% block content %}
-<h2>Log in to My Site</h2>
-{% if form.errors %}
-  <p style="color: red">Your username and password didn't match. Please try again.</p>
-{% endif %}
-<form method="post">
-  {% csrf_token %}
-  <input type="hidden" name="next" value="{{ next }}" />
-  {% for field in form %}
-    <p>
+<body style="background-color: black; color: white;">
+
+  <form action="" method="POST" enctype="multipart/form-data" style="font-size: larger; align-items: center; padding: 10%;">
+    <h1><b>Welcome back !</b></h1><br>
+    {% csrf_token %}
+    {% if form.errors %}
+      <p style="color: red">Your username and password didn't match. Please try again.</p>
+    {% endif %}
+    {% for field in form %}
+      <p>
       {{ field.label_tag }}<br>
       {{ field }}<br>
       {% for error in field.errors %}
@@ -17,9 +26,12 @@
       {% if field.help_text %}
         <p><small style="color: grey">{{ field.help_text }}</small></p>
       {% endif %}
-    </p>
-  {% endfor %}
-  <button type="submit">Log in</button>
-  <a href="{% url 'signup' %}" style="margin-left: 10%; color: rgb(248, 82, 6);">New to My Site? Sign up</a>
-</form>
-{% endblock %}
+      </p>
+    {% endfor %}  
+    
+  <button type="submit" style="margin-left: 15%;" class="btn btn-primary">logIn</button>
+  </form>
+{% endblock %}  
+</body>
+</html>
+
