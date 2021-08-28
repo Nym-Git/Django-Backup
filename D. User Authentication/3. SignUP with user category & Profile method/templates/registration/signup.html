@@ -1,20 +1,35 @@
-{% extends 'base.html' %}
+{% extends 'Base.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
 {% block content %}
-  <h2>Sign up</h2>
+<body style="background-color: rgb(87, 86, 86); color: rgb(255, 255, 255);">
+
   <form method="post" enctype="multipart/form-data">
+    <h1 style="text-align: center; color: white;">Create A New <b>Account</b></h1><br>
     {% csrf_token %}
     {% for field in form %}
       <p>
         {{ field.label_tag }}<br>
         {{ field }}
         {% if field.help_text %}
-          <small style="color: grey">{{ field.help_text }}</small>
+          <small style="color: rgb(214, 202, 202)">{{ field.help_text }}</small>
         {% endif %}
         {% for error in field.errors %}
-          <p style="color: red">{{ error }}</p>
+          <p style="color: rgb(245, 8, 59)">{{ error }}</p>
         {% endfor %}
       </p>
     {% endfor %}
-    <button type="submit">Sign up</button>
+    
+    <button type="submit" class="btn btn-danger btn-lg btn-block">signUP</button>
+  <br>
   </form>
+
+</body>
+</html>
 {% endblock %}
