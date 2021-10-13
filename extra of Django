@@ -1,0 +1,11 @@
+    filter with updation syntax in one line:
+        JoinForm.objects.filter(id=int(id)).update(status='Accepted')
+    
+    get syntax in one line:
+        profileINFO = JoinForm.objects.get(id = int(id))
+    
+    create data automaticaly :: syntax by using views: 
+        UserProfile.objects.create(fname = profileINFO, email=profileINFO.email, phone=profileINFO.mobile, workprofile=profileINFO.position, applydate=profileINFO.created_date)
+    
+    delete like simple python:
+        profileINFO.delete()
